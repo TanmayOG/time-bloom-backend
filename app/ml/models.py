@@ -332,9 +332,16 @@ class TaskMatcher:
         }
 
 class MLProcessor:
+class MLProcessor:
     def __init__(self):
-        self.productivity_predictor = ProductivityPredictor()
-        self.task_matcher = TaskMatcher()
+        self.productivity_predictor = None
+        self.task_matcher = None
+    
+    def _lazy_load_predictors(self):
+        if not self.productivity_predictor:
+            self.productivity_predictor = ProductivityPredictor()
+        if not self.task_matcher:
+            self.task_matcher = TaskMatcher()
     
     async def _get_user_activities(self, user_id):
         """Fetch user activities from database"""
