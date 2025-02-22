@@ -6,8 +6,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from datetime import datetime, time
-from app.database.mongodb import db
-from app.config import storage
+from database.mongodb import db
+from config import storage
 from datetime import datetime, timedelta
 from sklearn.ensemble import RandomForestRegressor
 import os
@@ -331,7 +331,6 @@ class TaskMatcher:
             'best_times': best_times
         }
 
-class MLProcessor:
 class MLProcessor:
     def __init__(self):
         self.productivity_predictor = None
